@@ -1,3 +1,3 @@
-<h1> Hello, Welcome to Simple DevOps Project !!   </h1>
-<h2> Deploying on a kubernetes using ansible for CloudSynergi </h2>
-<h2> I did it guys!!! </h2>
+<h1> Hello, Welcome to Abdullahs Devops project !!   </h1>
+<h2> Final goal is to deploy on a kubernetes cluster </h2>
+<h2> at docker host right now!!</h2>
