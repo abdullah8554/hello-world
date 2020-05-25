@@ -11,9 +11,9 @@ node () {
  			// Maven build step
 	withMaven(maven: 'mvn') { 
  			if(isUnix()) {
- 				sh "mvn clean package install " 
+ 				sh "mvn clean install package " 
 			} else { 
- 				bat "mvn clean package install " 
+ 				bat "mvn clean install package " 
 			} 
  		} 
 	}
