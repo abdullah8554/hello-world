@@ -11,15 +11,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
-- task: PublishBuildArtifacts@1
+- task: Maven@3
   inputs:
-    PathtoPublish: '**/deploy.yml'
-    ArtifactName: 'deploy'
-    publishLocation: 'Container'
-
-- task: PublishBuildArtifacts@1
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+- task: Docker@2
   inputs:
-    PathtoPublish: '/service.yml'
-    ArtifactName: 'service'
-    publishLocation: 'Container'
+    containerRegistry: 'abdullahdevops-1502'
+    repository: 'abdullahdevops'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
