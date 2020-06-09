@@ -27,3 +27,6 @@ steps:
     repository: 'abdullahdevops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
