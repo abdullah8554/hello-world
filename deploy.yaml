@@ -1,8 +1,8 @@
-  apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: mydevops
-spec:
+  spec:
   selector:
     matchLabels:
       app: devops
