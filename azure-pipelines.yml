@@ -30,6 +30,6 @@ steps:
     Dockerfile: '**/Dockerfile'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/webapp/target/webapp.war'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'webapp'
     publishLocation: 'Container'
