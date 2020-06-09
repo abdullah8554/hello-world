@@ -24,12 +24,12 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '**/deploy.yml'
+    PathtoPublish: '/deploy.yml'
     ArtifactName: 'deploy'
     publishLocation: 'Container'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '**/service.yml'
+    PathtoPublish: '/service.yml'
     ArtifactName: 'service'
     publishLocation: 'Container'
