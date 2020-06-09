@@ -28,3 +28,8 @@ steps:
     repository: 'abdullahdevops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/webapp/target/webapp.war'
+    ArtifactName: 'webapp'
+    publishLocation: 'Container'
