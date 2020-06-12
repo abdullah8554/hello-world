@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'abdullah1'
+    containerRegistry: 'abdullahdevops1'
     repository: 'devops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
