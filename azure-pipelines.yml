@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+steps:
 - task: prisma-cloud-compute-scan@1
   inputs:
     scanType: 'images'
