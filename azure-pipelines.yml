@@ -29,4 +29,3 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
--
