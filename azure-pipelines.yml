@@ -22,10 +22,11 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'ACR123'
-    repository: 'devops123'
+    containerRegistry: 'myDockerhub'
+    repository: 'abdullah8554/devops-project'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
       $(Build.BuildId)
       latest
+-
