@@ -23,8 +23,8 @@ steps:
 - task: twistcli-rasp@1
   inputs:
     twistlockService: 'prisma'
-    appID: 'test-app'
-    consoleHost: 'app3.prismacloud.io'
+    appID: 'mydocker'
+    consoleHost: 'https://us-west1.cloud.twistlock.com/us-3-159240883'
     dataFolder: '/twistlock'
     dockerfile: '**/Dockerfile'
 - task: Docker@2
@@ -36,3 +36,8 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+- task: prisma-cloud-compute-scan@1
+  inputs:
+    scanType: 'images'
+    twistlockService: 'prisma'
+    artifact: 'abdullah8554/devops-project'
