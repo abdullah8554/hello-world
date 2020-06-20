@@ -20,6 +20,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: twistcli-rasp@1
+  inputs:
+    twistlockService: 'prisma'
+    appID: 'test-app'
+    consoleHost: 'app3.prismacloud.io'
+    dataFolder: '/twistlock'
+    dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
     containerRegistry: 'myDockerhub'
