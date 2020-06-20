@@ -13,5 +13,5 @@ steps:
 - task: prisma-cloud-compute-scan@1
   inputs:
     scanType: 'images'
-    twistlockService: 'prisma'
+    twistlockService: 'prism'
     artifact: 'abdullah8554/devops-project'
