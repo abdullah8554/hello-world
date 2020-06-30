@@ -10,8 +10,24 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: prisma-cloud-compute-scan@1
+- task: CopyFiles@2
   inputs:
-    scanType: 'images'
-    twistlockService: 'prism'
-    artifact: 'abdullah8554/devops-project'
+    SourceFolder: 'helm_k8s'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'myDockerhub'
+    repository: 'abdullah8554/devops-project'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
