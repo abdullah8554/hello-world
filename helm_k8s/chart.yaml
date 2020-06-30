@@ -1,5 +1,5 @@
 apiVersion: v2
-name: hello-world
+name: hello_world
 description: A Helm chart for UserManagement API
 
 # A chart can be either an 'application' or a 'library' chart.
