@@ -2,8 +2,7 @@ apiVersion: apps/v1beta1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: {{.Release.Name}}
-  annotations:
-          rollme: {{ randAlphaNum 5 | quote }}
+  
 spec:
   selector:
     matchLabels:
@@ -17,6 +16,8 @@ spec:
 
   template:
     metadata:
+      annotations:
+          rollme: {{ randAlphaNum 5 | quote }}
       labels:
         app: {{ .Release.Name }}
     spec:
