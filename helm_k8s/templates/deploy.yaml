@@ -1,12 +1,12 @@
-apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: apps/v1beta1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: {{.Release.Name}}
-  spec:
+spec:
   selector:
     matchLabels:
       app: {{.Release.Name}}
-  replicas: {{.Values.replica}} # tells deployment to run 2 pods matching the template
+  replicas: {{.Values.replicas}} # tells deployment to run 2 pods matching the template
   strategy:
     type: RollingUpdate
     rollingUpdate:
