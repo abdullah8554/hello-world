@@ -1,12 +1,12 @@
 apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: mydevops
+  name: {{.Release.Name}}
   spec:
   selector:
     matchLabels:
-      app: devops
-  replicas: 2 # tells deployment to run 2 pods matching the template
+      app: {{.Release.Name}}
+  replicas: {{.Values.replica}} # tells deployment to run 2 pods matching the template
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -16,11 +16,11 @@ metadata:
   template:
     metadata:
       labels:
-        app: devops
+        app: {{ .Release.Name }}
     spec:
       containers:
       - name: devops
-        image: abdullahdevops.azurecr.io/abdullahdevops
+        image: {{.Values.image}}
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: {{.Values.port}}
